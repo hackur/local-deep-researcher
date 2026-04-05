@@ -22,6 +22,14 @@ dependencies = [
     "python-dotenv==1.2.1",
     "langgraph-cli[inmem]>=0.4.3",
     "ddgs>=9.8.0",
+    # SaaS dependencies
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.34.0",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "email-validator>=2.2.0",
+    "psycopg2-binary>=2.9.10",
+    "sqlalchemy>=2.0.36",
 ]
 
 [project.optional-dependencies]
@@ -32,10 +40,12 @@ requires = ["setuptools>=73.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["ollama_deep_researcher"]
+packages = ["ollama_deep_researcher", "server", "server.routes"]
 
 [tool.setuptools.package-dir]
 "ollama_deep_researcher" = "src/ollama_deep_researcher"
+"server" = "src/server"
+"server.routes" = "src/server/routes"
 
 [tool.setuptools.package-data]
 "*" = ["py.typed"]
